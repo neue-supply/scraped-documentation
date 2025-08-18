@@ -2,7 +2,7 @@
 title: "Documentation"
 source: "https://www.home-assistant.io/docs/automation/trigger"
 domain: "home-assistant.io"
-scraped_at: "2025-08-18T03:31:40.921Z"
+scraped_at: "2025-08-18T03:33:59.304Z"
 ---
 
 # Documentation
@@ -21,7 +21,6 @@ scraped_at: "2025-08-18T03:31:40.921Z"
   * [Blog](https://www.home-assistant.io/blog/)
   * [Need help?](https://www.home-assistant.io/help/)
   * Search`K`
-
 
   * [Trigger ID](https://www.home-assistant.io/docs/automation/trigger#trigger-id)
     * [Video tutorial](https://www.home-assistant.io/docs/automation/trigger#video-tutorial)
@@ -65,7 +64,6 @@ scraped_at: "2025-08-18T03:31:40.921Z"
   * [Merging lists of triggers](https://www.home-assistant.io/docs/automation/trigger#merging-lists-of-triggers)
   * [Related topics](https://www.home-assistant.io/docs/automation/trigger#related-topics)
 
-
 [Home](https://www.home-assistant.io/) ▸ [Documentation](https://www.home-assistant.io/docs/) ▸ [Automation](https://www.home-assistant.io/docs/automation/) ▸ 
 #  Automation Trigger 
 Triggers are what starts the processing of an automationAutomations in Home Assistant allow you to automatically respond to things that happen in and around your home.[ [Learn more]](https://www.home-assistant.io/docs/automation/) rule. When _any_ of the automation’s triggers becomes true (trigger _fires_), Home Assistant will validate the [conditions](https://www.home-assistant.io/docs/automation/condition/), if any, and call the [action](https://www.home-assistant.io/docs/automation/action/).
@@ -93,7 +91,6 @@ An automationAutomations in Home Assistant allow you to automatically respond to
   * [Multiple Entity IDs for the same Trigger](https://www.home-assistant.io/docs/automation/trigger#multiple-entity-ids-for-the-same-trigger)
   * [Disabling a trigger](https://www.home-assistant.io/docs/automation/trigger#disabling-a-trigger)
   * [Merging lists of triggers](https://www.home-assistant.io/docs/automation/trigger#merging-lists-of-triggers)
-
 
 ## Trigger ID [](https://www.home-assistant.io/docs/automation/trigger#trigger-id)
 All triggers can be assigned an optional `id`. If the ID is omitted, it will instead be set to the index of the trigger. The `id` can be referenced from [trigger conditions and actions](https://www.home-assistant.io/docs/scripts/conditions/#trigger-condition). The `id` does not have to be unique for each trigger, and it can be used to group similar triggers for use later in the automation (i.e., several triggers of different types that should all turn some entity on).
@@ -363,7 +360,6 @@ In general, the state trigger fires when the state of any of given entities **ch
     * During restart or reload, automations that were awaiting `for` the trigger to pass, are reset.
     * If for your use case this is undesired, you could consider using the automation to set an [`input_datetime`](https://www.home-assistant.io/integrations/input_datetime) to the desired time and then use that [`input_datetime`](https://www.home-assistant.io/integrations/input_datetime) as an automation trigger to perform the desired actions at the set time.
 
-
 The values you see in your overview will often not be the same as the actual state of the entity. For instance, the overview may show `Connected` when the underlying entity is actually `on`. You should check the state of the entity by checking the states in the developer tool, under [**Developer Tools** > **States**](https://my.home-assistant.io/redirect/developer_states).
 ### Examples [](https://www.home-assistant.io/docs/automation/trigger#examples)
 This automation triggers if either Paulus or Anne-Therese are home for one minute.
@@ -560,7 +556,6 @@ Although the actual amount of light depends on weather, topography and land cove
 This is what is meant by twilight for the average person: Under clear weather conditions, civil twilight approximates the limit at which solar illumination suffices for the human eye to clearly distinguish terrestrial objects. Enough illumination renders artificial sources unnecessary for most outdoor activities.
   * Nautical twilight: -6° > Solar angle > -12°
   * Astronomical twilight: -12° > Solar angle > -18°
-
 
 A very thorough explanation of this is available in the Wikipedia article about the [Twilight](https://en.wikipedia.org/wiki/Twilight).
 ## Tag trigger [](https://www.home-assistant.io/docs/automation/trigger#tag-trigger)
@@ -764,7 +759,6 @@ The `weekday` option accepts:
   * A single weekday as a string: `"mon"`, `"tue"`, `"wed"`, `"thu"`, `"fri"`, `"sat"`, `"sun"`
   * A list of weekdays using the expanded format
 
-
 #### Single weekday [](https://www.home-assistant.io/docs/automation/trigger#single-weekday)
 This example will turn on the lights only on Mondays at 8:00 AM:
 ```
@@ -935,7 +929,6 @@ Webhook endpoints don’t require authentication, other than knowing a valid web
   * Do not copy-and-paste webhook IDs from public sources, including blueprints. Always create your own.
   * Keep the `local_only` option enabled for webhooks if access from the internet is not required.
 
-
 ## Zone trigger [](https://www.home-assistant.io/docs/automation/trigger#zone-trigger)
 Zone trigger fires when an entity is entering or leaving the zone. The entity can be either a person, or a device_tracker. For zone automation to work, you need to have setup a device tracker platform that supports reporting GPS coordinates. This includes [GPS Logger](https://www.home-assistant.io/integrations/gpslogger/), the [OwnTracks platform](https://www.home-assistant.io/integrations/owntracks/) and the [iCloud platform](https://www.home-assistant.io/integrations/icloud/).
 ```
@@ -1006,18 +999,15 @@ The sentences matched by this trigger will be:
   * happy new year
   * happy birthday
 
-
 Punctuation and casing are ignored, so “It’s PARTY TIME!!!” will also match.
 ### Related topic [](https://www.home-assistant.io/docs/automation/trigger#related-topic)
   * [Adding a custom sentence to trigger an automation](https://www.home-assistant.io/voice_control/custom_sentences/#adding-a-custom-sentence-to-trigger-an-automation)
-
 
 ### Sentence wildcards [](https://www.home-assistant.io/docs/automation/trigger#sentence-wildcards)
 Adding one or more `{lists}` to your trigger sentences will capture any text at that point in the sentence. A `slots` object will be [available in the trigger data](https://www.home-assistant.io/docs/automation/templating#sentence). This allows you to match sentences with variable parts, such as album/artist names or a description of a picture.
 For example, the sentence `play {album} by {artist}` will match “play the white album by the beatles” and have the following variables available in the action templates:
   * `{{ trigger.slots.album }}` - “the white album”
   * `{{ trigger.slots.artist }}` - “the beatles”
-
 
 Wildcards will match as much text as possible, which may lead to surprises: “play day by day by taken by trees” will match `album` as “day” and `artist` as “day by taken by trees”. Including extra words in your template can help: `play {album} by artist {artist}` can now correctly match “play day by day by artist taken by trees”.
 ## Multiple triggers [](https://www.home-assistant.io/docs/automation/trigger#multiple-triggers)
@@ -1121,13 +1111,11 @@ This blueprint automation can then be triggered either by the fixed manual_event
 ## Related topics[](https://www.home-assistant.io/docs/automation/trigger#related-topics)
   * [ Adding a custom sentence to trigger an automation ](https://www.home-assistant.io/voice_control/custom_sentences/#adding-a-custom-sentence-to-trigger-an-automation)
 
-
 ####  **Help us improve our documentation**[](https://www.home-assistant.io/docs/automation/trigger#feedback_section)
 Suggest an edit to this page, or provide/view feedback for this page. 
   * [](https://github.com/home-assistant/home-assistant.io/tree/current/source/_docs/automation/trigger.markdown "Edit this page")
   * [](https://github.com/home-assistant/home-assistant.io/issues/new?template=feedback.yml&url=https%3A%2F%2Fwww.home-assistant.io%2Fdocs%2Fautomation%2Ftrigger%2F&version=2025.8.2&labels=current "Provide feedback on this page")
   * [](https://github.com/home-assistant/home-assistant.io/issues?utf8=%E2%9C%93&q=%22%2Fdocs%2Fautomation%2Ftrigger%2F%22&in=body "View given feedback for this page")
-
 
   * [Overview ](https://www.home-assistant.io/docs/) | [FAQ ](https://www.home-assistant.io/faq/) | [Glossary ](https://www.home-assistant.io/docs/glossary/)
   * [Automations ](https://www.home-assistant.io/docs/automation/)
@@ -1161,7 +1149,6 @@ Suggest an edit to this page, or provide/view feedback for this page.
     * [Home Assistant Connect ZWA-2 ](https://support.nabucasa.com/hc/en-us/categories/28669861145885)
     * [Home Assistant Yellow ](https://support.nabucasa.com/hc/en-us/categories/24734575925149-Home-Assistant-Yellow)
     * [Home Assistant Voice Preview Edition ](https://support.nabucasa.com/hc/en-us/categories/24451727188125-Home-Assistant-Voice-Preview-Edition)
-
 
   * [Trigger ID](https://www.home-assistant.io/docs/automation/trigger#trigger-id)
     * [Video tutorial](https://www.home-assistant.io/docs/automation/trigger#video-tutorial)
@@ -1205,7 +1192,6 @@ Suggest an edit to this page, or provide/view feedback for this page.
   * [Merging lists of triggers](https://www.home-assistant.io/docs/automation/trigger#merging-lists-of-triggers)
   * [Related topics](https://www.home-assistant.io/docs/automation/trigger#related-topics)
 
-
 ![Home Assistant](https://www.home-assistant.io/images/footer-logo-text.svg)
 Home Assistant is a project from the [Open Home Foundation](https://www.openhomefoundation.org/), sponsored by [Nabu Casa](https://www.nabucasa.com/). 
 ### Join us and contribute!
@@ -1218,18 +1204,15 @@ Home Assistant is a project from the [Open Home Foundation](https://www.openhome
   * [Works With Home Assistant ](https://works-with.home-assistant.io/)
   * [Reporting issues](https://www.home-assistant.io/help/reporting_issues/)
 
-
 ### System status
   * [Integration Alerts ](https://alerts.home-assistant.io)
   * [Security Alerts](https://www.home-assistant.io/security/)
   * [System Status ](https://status.home-assistant.io)
 
-
 ### Companion apps
   * [iOS and Apple devices](https://apps.apple.com/us/app/home-assistant/id1099568401)
   * [Android and Wear OS](https://play.google.com/store/apps/details?id=io.homeassistant.companion.android)
   * [...and more!](https://companion.home-assistant.io/)
-
 
 ### Governance
   * [Privacy Notices](https://www.home-assistant.io/privacy/)
@@ -1238,7 +1221,6 @@ Home Assistant is a project from the [Open Home Foundation](https://www.openhome
   * [Code of Conduct](https://www.home-assistant.io/code_of_conduct/)
   * [Credits](https://www.home-assistant.io/developers/credits/)
   * [License](https://www.home-assistant.io/developers/license/)
-
 
 ### Follow us
 [Sign up for our newsletter ](https://newsletter.openhomefoundation.org/#/portal)
@@ -1249,7 +1231,6 @@ For partnership inquiries please check out [Works With Home Assistant](https://w
 Website powered by [Jekyll](https://jekyllrb.com/)  
 Originally based on the [Oscailte theme](https://github.com/coogie/oscailte)
 [ ![Deploys by Netlify Badge](https://www.home-assistant.io/images/frontpage/netlify.svg) ](https://www.netlify.com)
-
 
 ---
 *Scraped from: https://www.home-assistant.io/docs/automation/trigger*
