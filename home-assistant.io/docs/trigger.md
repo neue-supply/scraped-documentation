@@ -2,11 +2,9 @@
 title: "Documentation"
 source: "https://www.home-assistant.io/docs/automation/trigger"
 domain: "home-assistant.io"
-scraped_at: "2025-08-18T03:48:52.505Z"
+scraped_at: "2025-08-18T03:50:11.110Z"
 ---
-
 # Documentation
-
 #  Automation Trigger 
 Triggers are what starts the processing of an automationAutomations in Home Assistant allow you to automatically respond to things that happen in and around your home.[ [Learn more]](https://www.home-assistant.io/docs/automation/) rule. When _any_ of the automation’s triggers becomes true (trigger _fires_), Home Assistant will validate the [conditions](https://www.home-assistant.io/docs/automation/condition/), if any, and call the [action](https://www.home-assistant.io/docs/automation/action/).
 An automationAutomations in Home Assistant allow you to automatically respond to things that happen in and around your home.[ [Learn more]](https://www.home-assistant.io/docs/automation/) can be triggered by an eventEvery time something happens in Home Assistant, an event is fired. There are different types of events, such as state change events, when an action was triggered, or the time changed. All entities produce state change events. Every time a state changes, a state change event is produced. Events can be used to trigger automations or scripts. For example, you can trigger an automation when a light is turned on, then a speaker turns on in that room. Events can also be used to trigger actions in the frontend. For example, you can trigger an action when a button is pressed.[ [Learn more]](https://www.home-assistant.io/docs/configuration/events/), a certain entityAn entity represents a sensor, actor, or function in Home Assistant. Entities are used to monitor physical properties or to control other entities. An entity is usually part of a device or a service.[ [Learn more]](https://www.home-assistant.io/docs/configuration/entities_domains/) stateThe state holds the information of interest of an entity, for example, if a light is on or off. Each entity has exactly one state and the state only holds one value at a time. However, entities can store attributes related to that state such as brightness, color, or a unit of measurement.[ [Learn more]](https://www.home-assistant.io/docs/configuration/state_object/), at a given time, and more. These can be specified directly or more flexible via templates. It is also possible to specify multiple triggers for one automation.
@@ -15,7 +13,7 @@ An automationAutomations in Home Assistant allow you to automatically respond to
 All triggers can be assigned an optional `id`. If the ID is omitted, it will instead be set to the index of the trigger. The `id` can be referenced from [trigger conditions and actions](https://www.home-assistant.io/docs/scripts/conditions/#trigger-condition). The `id` does not have to be unique for each trigger, and it can be used to group similar triggers for use later in the automation (i.e., several triggers of different types that should all turn some entity on).
 ### Video tutorial [](https://www.home-assistant.io/docs/automation/trigger#video-tutorial)
 This video tutorial explains how trigger IDs work.
-```
+```yaml
 automation:
   triggers:
     - trigger: event
@@ -37,7 +35,7 @@ Copy
 There are two different types of variables available for triggers. Both work like [script level variables](https://www.home-assistant.io/integrations/script/#variables).
 The first variant allows you to define variables that will be set when the trigger fires. The variables will be able to use templates and have access to [the `trigger` variable](https://www.home-assistant.io/docs/automation/templating#available-trigger-data).
 The second variant is setting variables that are available when attaching a trigger when the trigger can contain templated values. These are defined using the `trigger_variables` key at an automation level. These variables can only contain [limited templates](https://www.home-assistant.io/docs/configuration/templating/#limited-templates). The triggers will not re-apply if the value of the template changes. Trigger variables are a feature meant to support using blueprint inputs in triggers.
-```
+```yaml
 automation:
   trigger_variables:
     my_event: example_event
@@ -55,7 +53,7 @@ Copy
 ## Event trigger [](https://www.home-assistant.io/docs/automation/trigger#event-trigger)
 An event trigger fires when an [event](https://www.home-assistant.io/docs/configuration/events/) is being received. Events are the raw building blocks of Home Assistant. You can match events on just the event name or also require specific event data or context to be present.
 Events can be fired by integrations or via the API. There is no limitation to the types. A list of built-in events can be found [here](https://www.home-assistant.io/docs/configuration/events/).
-```
+```yaml
 automation:
   triggers:
     - trigger: event
@@ -73,7 +71,7 @@ automation:
 YAML
 Copy
 It is also possible to listen for multiple events at once. This is useful for event that contain no, or similar, data and contexts.
-```
+```yaml
 automation:
   triggers:
     - trigger: event
@@ -86,7 +84,7 @@ YAML
 Copy
 It’s also possible to use [limited templates](https://www.home-assistant.io/docs/configuration/templating/#limited-templates) in the `event_type`, `event_data` and `context` options.
 The `event_type`, `event_data` and `context` templates are only evaluated when setting up the trigger, they will not be reevaluated for every event.
-```
+```yaml
 automation:
   trigger_variables:
     sub_event: ABC
@@ -101,7 +99,7 @@ YAML
 Copy
 ## Home Assistant trigger [](https://www.home-assistant.io/docs/automation/trigger#home-assistant-trigger)
 Fires when Home Assistant starts up or shuts down.
-```
+```yaml
 automation:
   triggers:
     - trigger: homeassistant
@@ -114,7 +112,7 @@ Copy
 Automations triggered by the `shutdown` event have 20 seconds to run, after which they are stopped to continue with the shutdown.
 ## MQTT trigger [](https://www.home-assistant.io/docs/automation/trigger#mqtt-trigger)
 Fires when a specific message is received on given MQTT topic. Optionally can match on the payload being sent over the topic. The default payload encoding is ‘utf-8’. For images and other byte payloads use `encoding: ''` to disable payload decoding completely.
-```
+```yaml
 automation:
   triggers:
     - trigger: mqtt
@@ -127,7 +125,7 @@ automation:
 YAML
 Copy
 The `payload` option can be combined with a `value_template` to process the message received on the given MQTT topic before matching it with the payload. The trigger in the example below will trigger only when the message received on `living_room/switch/ac` is valid JSON, with a key `state` which has the value `"on"`.
-```
+```yaml
 automation:
   triggers:
     - trigger: mqtt
@@ -140,7 +138,7 @@ YAML
 Copy
 It’s also possible to use [limited templates](https://www.home-assistant.io/docs/configuration/templating/#limited-templates) in the `topic` and `payload` options.
 The `topic` and `payload` templates are only evaluated when setting up the trigger, they will not be re-evaluated for every incoming MQTT message.
-```
+```yaml
 automation:
   trigger_variables:
     room: "living_room"
@@ -159,7 +157,7 @@ Copy
 ## Numeric state trigger [](https://www.home-assistant.io/docs/automation/trigger#numeric-state-trigger)
 Fires when the numeric value of an entity’s state (or attribute’s value if using the `attribute` property, or the calculated value if using the `value_template` property) **crosses** a given threshold (equal excluded). On state change of a specified entity, attempts to parse the state as a number and fires if the value is changing from above to below or from below to above the given threshold (equal excluded).
 Crossing the threshold means that the trigger only fires if the state wasn’t previously within the threshold. If the current state of your entity is `50` and you set the threshold to `below: 75`, the trigger would not fire if the state changed to e.g. `49` or `72` because the threshold was never crossed. The state would first have to change to e.g. `76` and then to e.g. `74` for the trigger to fire.
-```
+```yaml
 automation:
   triggers:
     - trigger: numeric_state
@@ -182,7 +180,7 @@ YAML
 Copy
 Listing above and below together means the numeric_state has to be between the two values. In the example above, the trigger would fire a single time if a numeric_state goes into the 17.1-24.9 range (above 17 and below 25). It will only fire again, once it has left the defined range and enters it again.
 When the `attribute` option is specified the trigger is compared to the given `attribute` instead of the state of the entity.
-```
+```yaml
 automation:
   triggers:
     - trigger: numeric_state
@@ -195,7 +193,7 @@ YAML
 Copy
 More dynamic and complex calculations can be done with `value_template`. The variable ‘state’ is the [state object](https://www.home-assistant.io/docs/configuration/state_object) of the entity specified by `entity_id`.
 The state of the entity can be referenced like this:
-```
+```yaml
 automation:
   triggers:
     - trigger: numeric_state
@@ -207,7 +205,7 @@ automation:
 YAML
 Copy
 Attributes of the entity can be referenced like this:
-```
+```yaml
 automation:
   triggers:
     - trigger: numeric_state
@@ -219,7 +217,7 @@ automation:
 YAML
 Copy
 Number helpers (`input_number` entities), `number`, `sensor`, and `zone` entities that contain a numeric value, can be used in the `above` and `below` thresholds. However, the comparison will only be made when the entity specified in the trigger is updated. This would look like:
-```
+```yaml
 automation:
   triggers:
     - trigger: numeric_state
@@ -231,7 +229,7 @@ automation:
 YAML
 Copy
 The `for:` can also be specified as `HH:MM:SS` like this:
-```
+```yaml
 automation:
   triggers:
     - trigger: numeric_state
@@ -247,7 +245,7 @@ automation:
 YAML
 Copy
 You can also use templates in the `for` option.
-```
+```yaml
 automation:
   triggers:
     - trigger: numeric_state
@@ -282,7 +280,7 @@ In general, the state trigger fires when the state of any of given entities **ch
 The values you see in your overview will often not be the same as the actual state of the entity. For instance, the overview may show `Connected` when the underlying entity is actually `on`. You should check the state of the entity by checking the states in the developer tool, under [**Developer Tools** > **States**](https://my.home-assistant.io/redirect/developer_states).
 ### Examples [](https://www.home-assistant.io/docs/automation/trigger#examples)
 This automation triggers if either Paulus or Anne-Therese are home for one minute.
-```
+```yaml
 automation:
   triggers:
     - trigger: state
@@ -303,7 +301,7 @@ automation:
 YAML
 Copy
 It’s possible to give a list of `from` states or `to` states:
-```
+```yaml
 automation:
   triggers:
     - trigger: state
@@ -317,7 +315,7 @@ automation:
 YAML
 Copy
 If you want to trigger on all state changes, but not on attribute changes, you can `to` to `null` (this would also work by setting `from`, `not_from`, or `not_to` to `null`):
-```
+```yaml
 automation:
   triggers:
     - trigger: state
@@ -328,7 +326,7 @@ automation:
 YAML
 Copy
 If you want to trigger on all state changes _except_ specific ones, use `not_from` or `not_to` The `not_from` and `not_to` options are the counter parts of `from` and `to`. They can be used to trigger on state changes that are **not** the specified state.
-```
+```yaml
 automation:
   triggers:
     - trigger: state
@@ -345,7 +343,7 @@ You cannot use `from` and `not_from` at the same time. The same applies to `to` 
 ### Triggering on attribute changes [](https://www.home-assistant.io/docs/automation/trigger#triggering-on-attribute-changes)
 When the `attribute` option is specified, the trigger only fires when the specified attribute **changes**. Changes to other attributes or state changes are ignored.
 For example, this trigger only fires when the boiler has been heating for 10 minutes:
-```
+```yaml
 automation:
   triggers:
     - trigger: state
@@ -358,7 +356,7 @@ automation:
 YAML
 Copy
 This trigger fires whenever the boiler’s `hvac_action` attribute changes:
-```
+```yaml
 automation:
   triggers:
     - trigger: state
@@ -371,7 +369,7 @@ Copy
 ### Holding a state or attribute [](https://www.home-assistant.io/docs/automation/trigger#holding-a-state-or-attribute)
 You can use `for` to have the state trigger only fire if the state holds for some time.
 This example fires, when the entity state changed to `"on"` and holds that state for 30 seconds:
-```
+```yaml
 automation:
   triggers:
     - trigger: state
@@ -386,7 +384,7 @@ Copy
 When holding a state, changes to attributes are ignored. Changes to attributes don’t cancel the hold time.
 You can also fire the trigger when the state value changed from a specific state, but hasn’t returned to that state value for the specified time.
 This can be useful, e.g., checking if a media player hasn’t turned “off” for the time specified, but doesn’t care about “playing” or “paused”.
-```
+```yaml
 automation:
   triggers:
     - trigger: state
@@ -400,7 +398,7 @@ YAML
 Copy
 Please note, that when using `from`, `to` and `for`, only the value of the `to` option is considered for the time specified.
 In this example, the trigger fires if the state value of the entity remains the same for `for` the time specified, regardless of the current state value.
-```
+```yaml
 automation:
   triggers:
     - trigger: state
@@ -412,7 +410,7 @@ automation:
 YAML
 Copy
 You can also use templates in the `for` option.
-```
+```yaml
 automation:
   triggers:
     - trigger: state
@@ -438,7 +436,7 @@ Use quotes around your values for `from` and `to` to avoid the YAML parser from 
 Fires when the sun is setting or rising, i.e., when the sun elevation reaches 0°.
 An optional time offset can be given to have it fire a set time before or after the sun event (e.g., 45 minutes before sunset). A negative value makes it fire before sunrise or sunset, a positive value afterwards. The offset needs to be specified in number of seconds, or in a hh:mm:ss format.
 Since the duration of twilight is different throughout the year, it is recommended to use [sun elevation triggers](https://www.home-assistant.io/docs/automation/trigger/#sun-elevation-trigger) instead of `sunset` or `sunrise` with a time offset to trigger automations during dusk or dawn.
-```
+```yaml
 automation:
   triggers:
     - trigger: sun
@@ -452,7 +450,7 @@ YAML
 Copy
 ### Sun elevation trigger [](https://www.home-assistant.io/docs/automation/trigger#sun-elevation-trigger)
 Sometimes you may want more granular control over an automation than simply sunset or sunrise and specify an exact elevation of the sun. This can be used to layer automations to occur as the sun lowers on the horizon or even after it is below the horizon. This is also useful when the “sunset” event is not dark enough outside and you would like the automation to run later at a precise solar angle instead of the time offset such as turning on exterior lighting. For most automations intended to run during dusk or dawn, a number between 0° and -6° is suitable; -4° is used in this example:
-```
+```yaml
 automation:
   - alias: "Exterior Lighting on when dark outside"
     triggers:
@@ -479,7 +477,7 @@ This is what is meant by twilight for the average person: Under clear weather co
 A very thorough explanation of this is available in the Wikipedia article about the [Twilight](https://en.wikipedia.org/wiki/Twilight).
 ## Tag trigger [](https://www.home-assistant.io/docs/automation/trigger#tag-trigger)
 Fires when a [tag](https://www.home-assistant.io/integrations/tag) is scanned. For example, a NFC tag is scanned using the Home Assistant Companion mobile application.
-```
+```yaml
 automation:
   triggers:
     - trigger: tag
@@ -489,7 +487,7 @@ automation:
 YAML
 Copy
 Additionally, you can also only trigger if a card is scanned by a specific device/scanner by setting the `device_id`:
-```
+```yaml
 automation:
   triggers:
     - trigger: tag
@@ -500,7 +498,7 @@ automation:
 YAML
 Copy
 Or trigger on multiple possible devices for multiple tags:
-```
+```yaml
 automation:
   triggers:
     - trigger: tag
@@ -518,7 +516,7 @@ Copy
 Template triggers work by evaluating a [template](https://www.home-assistant.io/docs/configuration/templating/) when any of the recognized entities change state. The trigger will fire if the state change caused the template to render ‘true’ (a non-zero number or any of the strings `true`, `yes`, `on`, `enable`) when it was previously ‘false’ (anything else).
 This is achieved by having the template result in a true boolean expression (for example `{{ is_state('device_tracker.paulus', 'home') }}`) or by having the template render `true` (example below).
 With template triggers you can also evaluate attribute changes by using is_state_attr (like `{{ is_state_attr('climate.living_room', 'away_mode', 'off') }}`)
-```
+```yaml
 automation:
   triggers:
     - trigger: template
@@ -531,7 +529,7 @@ automation:
 YAML
 Copy
 You can also use templates in the `for` option.
-```
+```yaml
 automation:
   triggers:
     - trigger: template
@@ -550,7 +548,7 @@ If for your use case this is undesired, you could consider using the automation 
 The time trigger is configured to fire once a day at a specific time, or at a specific time on a specific date. There are three allowed formats:
 ### Time string [](https://www.home-assistant.io/docs/automation/trigger#time-string)
 A string that represents a time to fire on each day. Can be specified as `HH:MM` or `HH:MM:SS`. If the seconds are not specified, `:00` will be used.
-```
+```yaml
 automation:
   - triggers:
     - trigger: time
@@ -567,7 +565,7 @@ has_date | has_time | Description
 `true` | `true` | Will fire at specified date & time.  
 `true` | `false` | Will fire at midnight on specified date.  
 `false` | `true` | Will fire once a day at specified time.  
-```
+```yaml
 automation:
   - triggers:
       - trigger: state
@@ -597,7 +595,7 @@ YAML
 Copy
 ### Sensors of datetime device class [](https://www.home-assistant.io/docs/automation/trigger#sensors-of-datetime-device-class)
 The Entity ID of a [sensor](https://www.home-assistant.io/integrations/sensor/) with the “timestamp” device class.
-```
+```yaml
 automation:
   - triggers:
       - trigger: time
@@ -613,7 +611,7 @@ Copy
 ### Sensors of datetime device class with offsets [](https://www.home-assistant.io/docs/automation/trigger#sensors-of-datetime-device-class-with-offsets)
 When the time is provided using a sensor of the timestamp device class, an offset can be provided. This offset will be added to (or subtracted from when negative) the sensor value.
 For example, this trigger fires 5 minutes before the phone alarm goes off.
-```
+```yaml
 automation:
   - triggers:
       - trigger: time
@@ -631,7 +629,7 @@ Copy
 When using a positive offset the trigger might never fire. This is due to the sensor changing before the offset is reached. For example, when using a phone alarm as a trigger, the sensor value will change to the new alarm time when the alarm goes off, which means this trigger will change to the new time as well.
 ### Multiple times [](https://www.home-assistant.io/docs/automation/trigger#multiple-times)
 Multiple times can be provided in a list. All formats can be intermixed.
-```
+```yaml
 automation:
   triggers:
     - trigger: time
@@ -680,7 +678,7 @@ The `weekday` option accepts:
 
 #### Single weekday [](https://www.home-assistant.io/docs/automation/trigger#single-weekday)
 This example will turn on the lights only on Mondays at 8:00 AM:
-```
+```yaml
 automation:
   - triggers:
       - trigger: time
@@ -696,7 +694,7 @@ YAML
 Copy
 #### Multiple weekdays [](https://www.home-assistant.io/docs/automation/trigger#multiple-weekdays)
 This example will run a morning routine only on weekdays (Monday through Friday) at 6:30 AM:
-```
+```yaml
 automation:
   - triggers:
       - trigger: time
@@ -715,7 +713,7 @@ YAML
 Copy
 #### Weekend example [](https://www.home-assistant.io/docs/automation/trigger#weekend-example)
 This example demonstrates a different wake-up time for weekends:
-```
+```yaml
 automation:
   - alias: "Weekday alarm"
     triggers:
@@ -745,7 +743,7 @@ YAML
 Copy
 #### Combined with input datetime [](https://www.home-assistant.io/docs/automation/trigger#combined-with-input-datetime)
 The `weekday` option works with all time formats, including input datetime entities:
-```
+```yaml
 automation:
   - triggers:
       - trigger: time
@@ -767,7 +765,7 @@ YAML
 Copy
 ## Time pattern trigger [](https://www.home-assistant.io/docs/automation/trigger#time-pattern-trigger)
 With the time pattern trigger, you can match if the hour, minute or second of the current time matches a specific value. You can prefix the value with a `/` to match whenever the value is divisible by that number. You can specify `*` to match any value (when using the web interface this is required, the fields cannot be left empty).
-```
+```yaml
 automation:
   triggers:
     - trigger: time_pattern
@@ -793,7 +791,7 @@ Copy
 Do not prefix numbers with a zero - using `'01'` instead of `'1'` for example will result in errors.
 ## Persistent notification trigger [](https://www.home-assistant.io/docs/automation/trigger#persistent-notification-trigger)
 Persistent notification triggers are fired when a `persistent_notification` is `added` or `removed` that matches the configuration options.
-```
+```yaml
 automation:
   triggers:
     - trigger: persistent_notification
@@ -808,7 +806,7 @@ Copy
 See the [Persistent Notification](https://www.home-assistant.io/integrations/persistent_notification/) integration for more details on event triggers and the additional event data available for use by an automation.
 ## Webhook trigger [](https://www.home-assistant.io/docs/automation/trigger#webhook-trigger)
 Webhook trigger fires when a web request is made to the webhook endpoint: `/api/webhook/<webhook_id>`. The webhook endpoint is created automatically when you set it as the `webhook_id` in an automation trigger.
-```
+```yaml
 automation:
   triggers:
     - trigger: webhook
@@ -850,7 +848,7 @@ Webhook endpoints don’t require authentication, other than knowing a valid web
 
 ## Zone trigger [](https://www.home-assistant.io/docs/automation/trigger#zone-trigger)
 Zone trigger fires when an entity is entering or leaving the zone. The entity can be either a person, or a device_tracker. For zone automation to work, you need to have setup a device tracker platform that supports reporting GPS coordinates. This includes [GPS Logger](https://www.home-assistant.io/integrations/gpslogger/), the [OwnTracks platform](https://www.home-assistant.io/integrations/owntracks/) and the [iCloud platform](https://www.home-assistant.io/integrations/icloud/).
-```
+```yaml
 automation:
   triggers:
     - trigger: zone
@@ -865,7 +863,7 @@ Copy
 ## Geolocation trigger [](https://www.home-assistant.io/docs/automation/trigger#geolocation-trigger)
 Geolocation trigger fires when an entity is appearing in or disappearing from a zone. Entities that are created by a [Geolocation](https://www.home-assistant.io/integrations/geo_location/) platform support reporting GPS coordinates. Because entities are generated and removed by these platforms automatically, the entity ID normally cannot be predicted. Instead, this trigger requires the definition of a `source`, which is directly linked to one of the Geolocation platforms.
 This isn’t for use with `device_tracker` entities. For those look above at the `zone` trigger.
-```
+```yaml
 automation:
   triggers:
     - trigger: geo_location
@@ -883,7 +881,7 @@ In contrast to state triggers, device triggers are tied to a device and not nece
 ## Calendar trigger [](https://www.home-assistant.io/docs/automation/trigger#calendar-trigger)
 Calendar trigger fires when a [Calendar](https://www.home-assistant.io/integrations/calendar/) event starts or ends, allowing for much more flexible automations than using the Calendar entity state which only supports a single event start at a time.
 An optional time offset can be given to have it fire a set time before or after the calendar event (e.g., 5 minutes before event start).
-```
+```yaml
 automation:
   triggers:
     - trigger: calendar
@@ -901,7 +899,7 @@ See the [Calendar](https://www.home-assistant.io/integrations/calendar/) integra
 ## Sentence trigger [](https://www.home-assistant.io/docs/automation/trigger#sentence-trigger)
 A sentence trigger fires when [Assist](https://www.home-assistant.io/voice_control/) matches a sentence from a voice assistant using the default [conversation agent](https://www.home-assistant.io/integrations/conversation/). Sentence triggers work with Home Assistant Assist. They will not work with external conversation agents such as OpenAI or Google Generative AI unless “Prefer handling commands locally” is enabled in the conversation agent settings.
 Sentences are allowed to use some basic [template syntax](https://developers.home-assistant.io/docs/voice/intent-recognition/template-sentence-syntax/#sentence-templates-syntax) like optional and alternative words. For example, `[it's ]party time` will match both “party time” and “it’s party time”.
-```
+```yaml
 automation:
   triggers:
     - trigger: conversation
@@ -930,7 +928,7 @@ For example, the sentence `play {album} by {artist}` will match “play the whit
 Wildcards will match as much text as possible, which may lead to surprises: “play day by day by taken by trees” will match `album` as “day” and `artist` as “day by taken by trees”. Including extra words in your template can help: `play {album} by artist {artist}` can now correctly match “play day by day by artist taken by trees”.
 ## Multiple triggers [](https://www.home-assistant.io/docs/automation/trigger#multiple-triggers)
 It is possible to specify multiple triggers for the same rule. To do so just prefix the first line of each trigger with a dash (-) and indent the next lines accordingly. Whenever one of the triggers fires, processing of your automation rule begins.
-```
+```yaml
 automation:
   triggers:
     # first trigger
@@ -945,7 +943,7 @@ YAML
 Copy
 ## Multiple entity IDs for the same trigger [](https://www.home-assistant.io/docs/automation/trigger#multiple-entity-ids-for-the-same-trigger)
 It is possible to specify multiple entities for the same trigger. To do so add multiple entities using a nested list. The trigger will fire and start, processing your automation each time the trigger is true for any entity listed.
-```
+```yaml
 automation:
   triggers:
     - trigger: state
@@ -1052,6 +1050,5 @@ For partnership inquiries please check out [Works With Home Assistant](https://w
 Website powered by [Jekyll](https://jekyllrb.com/)  
 Originally based on the [Oscailte theme](https://github.com/coogie/oscailte)
 [ ![Deploys by Netlify Badge](https://www.home-assistant.io/images/frontpage/netlify.svg) ](https://www.netlify.com)
-
 ---
 *Scraped from: https://www.home-assistant.io/docs/automation/trigger*
