@@ -1,21 +1,11 @@
 ---
 title: "Documentation"
-description: "Documentation from home-assistant.io"
 source: "https://www.home-assistant.io/docs/automation/trigger"
 domain: "home-assistant.io"
-scraped_at: "2025-08-18T03:44:39.492Z"
-category: "documentation"
-tags: 
-  - "home-assistant.io"
-  - "documentation"
-  - "automation"
-language: "en"
+scraped_at: "2025-08-18T03:45:23.041Z"
 ---
 
 # Documentation
-
-> **Source:** [https://www.home-assistant.io/docs/automation/trigger](https://www.home-assistant.io/docs/automation/trigger)  
-> **Last Updated:** 8/18/2025
 
 <html>
 <!--<![endif]--><head>
@@ -1807,5 +1797,4 @@ To do so, add <code>enabled: false</code> to the trigger. For example:</p>
 </html>
 
 ---
-
-*Documentation scraped from [home-assistant.io](https://www.home-assistant.io/docs/automation/trigger)*
+*Scraped from: https://www.home-assistant.io/docs/automation/trigger*
