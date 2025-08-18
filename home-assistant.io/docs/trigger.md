@@ -1,10 +1,10 @@
 ---
-title: "Documentation"
+title: "Trigger"
 source: "https://www.home-assistant.io/docs/automation/trigger"
 domain: "home-assistant.io"
-scraped_at: "2025-08-18T03:50:11.110Z"
+scraped_at: "2025-08-18T03:51:56.389Z"
 ---
-# Documentation
+# Trigger
 #  Automation Trigger 
 Triggers are what starts the processing of an automationAutomations in Home Assistant allow you to automatically respond to things that happen in and around your home.[ [Learn more]](https://www.home-assistant.io/docs/automation/) rule. When _any_ of the automation’s triggers becomes true (trigger _fires_), Home Assistant will validate the [conditions](https://www.home-assistant.io/docs/automation/condition/), if any, and call the [action](https://www.home-assistant.io/docs/automation/action/).
 An automationAutomations in Home Assistant allow you to automatically respond to things that happen in and around your home.[ [Learn more]](https://www.home-assistant.io/docs/automation/) can be triggered by an eventEvery time something happens in Home Assistant, an event is fired. There are different types of events, such as state change events, when an action was triggered, or the time changed. All entities produce state change events. Every time a state changes, a state change event is produced. Events can be used to trigger automations or scripts. For example, you can trigger an automation when a light is turned on, then a speaker turns on in that room. Events can also be used to trigger actions in the frontend. For example, you can trigger an action when a button is pressed.[ [Learn more]](https://www.home-assistant.io/docs/configuration/events/), a certain entityAn entity represents a sensor, actor, or function in Home Assistant. Entities are used to monitor physical properties or to control other entities. An entity is usually part of a device or a service.[ [Learn more]](https://www.home-assistant.io/docs/configuration/entities_domains/) stateThe state holds the information of interest of an entity, for example, if a light is on or off. Each entity has exactly one state and the state only holds one value at a time. However, entities can store attributes related to that state such as brightness, color, or a unit of measurement.[ [Learn more]](https://www.home-assistant.io/docs/configuration/state_object/), at a given time, and more. These can be specified directly or more flexible via templates. It is also possible to specify multiple triggers for one automation.
