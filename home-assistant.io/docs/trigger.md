@@ -52,8 +52,7 @@ should all turn some entity on).
 
 This video tutorial explains how trigger IDs work.
 
-```
-
+```yaml
   
       event
        
@@ -66,8 +65,7 @@ This video tutorial explains how trigger IDs work.
          device_tracker.paulus
          device_tracker.anne_therese
        
-```
-
+```yaml
 There are two different types of variables available for triggers. Both work
 like .
 
@@ -80,8 +78,7 @@ the key at an automation level. These variables can only contain . The triggers
 will not re-apply if the value of the template changes. Trigger variables are a
 feature meant to support using blueprint inputs in triggers.
 
-```
-
+```yaml
   
      example_event
   
@@ -91,8 +88,7 @@ feature meant to support using blueprint inputs in triggers.
       # These variables are evaluated and set when this trigger is triggered
       
          
-```
-
+```yaml
 An event trigger fires when an is being received. Events are the raw building
 blocks of Home Assistant. You can match events on just the event name or also
 require specific event data or context to be present.
@@ -100,8 +96,7 @@ require specific event data or context to be present.
 Events can be fired by integrations or via the API. There is no limitation to
 the types. A list of built-in events can be found .
 
-```
-
+```yaml
   
       event
        
@@ -113,8 +108,7 @@ the types. A list of built-in events can be found .
         # any of these will match
            
            
-```
-
+```yaml
 It is also possible to listen for multiple events at once. This is useful for
 event that contain no, or similar, data and contexts.
 
@@ -123,8 +117,7 @@ It’s also possible to use in the , and options.
 The , and templates are only evaluated when setting up the trigger, they will
 not be reevaluated for every event.
 
-```
-
+```yaml
   
      ABC
      ac
@@ -132,18 +125,15 @@ not be reevaluated for every event.
   
       event
        "{{ 'MY_CUSTOM_EVENT_' ~ sub_event }}"
-```
-
+```yaml
 Fires when Home Assistant starts up or shuts down.
 
-```
-
+```yaml
   
       homeassistant
       # Event can also be 'shutdown'
        start
-```
-
+```yaml
 Automations triggered by the event have 20 seconds to run, after which they are
 stopped to continue with the shutdown.
 
@@ -162,8 +152,7 @@ It’s also possible to use in the and options.
 The and templates are only evaluated when setting up the trigger, they will not
 be re-evaluated for every incoming MQTT message.
 
-```
-
+```yaml
   
      
      
@@ -174,8 +163,7 @@ be re-evaluated for every incoming MQTT message.
       
        "{{ 'state:' ~ value }}"
        
-```
-
+```yaml
 Fires when the numeric value of an entity’s state (or attribute’s value if using
 the property, or the calculated value if using the property) a given threshold
 (equal excluded). On state change of a specified entity, attempts to parse the
@@ -188,8 +176,7 @@ set the threshold to , the trigger would not fire if the state changed to e.g.
 or because the threshold was never crossed. The state would first have to change
 to e.g. and then to e.g. for the trigger to fire.
 
-```
-
+```yaml
   
       numeric_state
        sensor.temperature
@@ -205,8 +192,7 @@ to e.g. and then to e.g. for the trigger to fire.
          
          
          
-```
-
+```yaml
 Listing above and below together means the numeric_state has to be between the
 two values. In the example above, the trigger would fire a single time if a
 numeric_state goes into the 17.1-24.9 range (above 17 and below 25). It will
@@ -220,43 +206,36 @@ the of the entity specified by .
 
 The state of the entity can be referenced like this:
 
-```
-
+```yaml
   
       numeric_state
        sensor.temperature
        "{{ state.state | float * 9 / 5 + 32 }}"
        
-```
-
+```yaml
 Attributes of the entity can be referenced like this:
 
-```
-
+```yaml
   
       numeric_state
        climate.kitchen
        "{{ state.attributes.current_temperature - state.attributes.temperature_set_point }}"
        
-```
-
+```yaml
 Number helpers ( entities), , , and entities that contain a numeric value, can
 be used in the and thresholds. However, the comparison will only be made when
 the entity specified in the trigger is updated. This would look like:
 
-```
-
+```yaml
   
       numeric_state
        sensor.outside_temperature
       # Other entity ids can be specified for above and/or below thresholds
        sensor.inside_temperature
-```
-
+```yaml
 The can also be specified as like this:
 
-```
-
+```yaml
   
       numeric_state
        sensor.temperature
@@ -266,12 +245,10 @@ The can also be specified as like this:
 
       # If given, will trigger when condition has been for X time.
        
-```
-
+```yaml
 You can also use templates in the option.
 
-```
-
+```yaml
   
       numeric_state
       
@@ -286,8 +263,7 @@ You can also use templates in the option.
       
          
           {{ trigger.to_state.name }} too high for {{ trigger.for }}!
-```
-
+```yaml
 The template(s) will be evaluated when an entity changes as specified.
 
 Use of the option will not survive Home Assistant restart or the reload of
@@ -316,8 +292,7 @@ states in the developer tool, under .
 This automation triggers if either Paulus or Anne-Therese are home for one
 minute.
 
-```
-
+```yaml
   
       state
       
@@ -332,21 +307,18 @@ minute.
          
          
          
-```
-
+```yaml
 It’s possible to give a list of states or states:
 
 If you want to trigger on all state changes, but not on attribute changes, you
 can to (this would also work by setting , , or to ):
 
-```
-
+```yaml
   
       state
        vacuum.test
       to
-```
-
+```yaml
 If you want to trigger on all state changes specific ones, use or The and
 options are the counter parts of and . They can be used to trigger on state
 changes that are the specified state.
@@ -369,16 +341,14 @@ time.
 This example fires, when the entity state changed to and holds that state for 30
 seconds:
 
-```
-
+```yaml
   
       state
        light.office
       # Must stay "on" for 30 seconds
        
        
-```
-
+```yaml
 When holding a state, changes to attributes are ignored. Changes to attributes
 don’t cancel the hold time.
 
@@ -388,35 +358,30 @@ state, but hasn’t returned to that state value for the specified time.
 This can be useful, e.g., checking if a media player hasn’t turned “off” for the
 time specified, but doesn’t care about “playing” or “paused”.
 
-```
-
+```yaml
   
       state
        media_player.kitchen
       # Not "off" for 30 minutes
        
        
-```
-
+```yaml
 Please note, that when using , and , only the value of the option is considered
 for the time specified.
 
 In this example, the trigger fires if the state value of the entity remains the
 same for the time specified, regardless of the current state value.
 
-```
-
+```yaml
   
       state
        media_player.kitchen
       # The media player remained in its current state for 1 hour
        
-```
-
+```yaml
 You can also use templates in the option.
 
-```
-
+```yaml
   
       state
       
@@ -430,8 +395,7 @@ You can also use templates in the option.
       lock.lock
       
          lock.my_place
-```
-
+```yaml
 The template(s) will be evaluated when an entity changes as specified.
 
 Use quotes around your values for and to avoid the YAML parser from interpreting
@@ -449,16 +413,14 @@ Since the duration of twilight is different throughout the year, it is
 recommended to use instead of or with a time offset to trigger automations
 during dusk or dawn.
 
-```
-
+```yaml
   
       sun
       # Possible values: sunset, sunrise
        sunset
       # Optional time offset. This example will trigger 45 minutes before sunset.
        
-```
-
+```yaml
 Sometimes you may want more granular control over an automation than simply
 sunset or sunrise and specify an exact elevation of the sun. This can be used to
 layer automations to occur as the sun lowers on the horizon or even after it is
@@ -468,8 +430,7 @@ angle instead of the time offset such as turning on exterior lighting. For most
 automations intended to run during dusk or dawn, a number between 0° and -6° is
 suitable; -4° is used in this example:
 
-```
-
+```yaml
     "Exterior Lighting on when dark outside"
     
         numeric_state
@@ -481,8 +442,7 @@ suitable; -4° is used in this example:
         switch.turn_on
         
            switch.exterior_lighting
-```
-
+```yaml
 If you want to get more precise, you can use this
 
 Although the actual amount of light depends on weather, topography and land
@@ -520,27 +480,23 @@ With template triggers you can also evaluate attribute changes by using
 is_state_attr (like `{{ is_state_attr('climate.living_room', 'away_mode', 'off')
 }}`)
 
-```
-
+```yaml
   
       template
        "{% if is_state('device_tracker.paulus', 'home') %}true{% endif %}"
 
       # If given, will trigger when template remains true for X time.
        
-```
-
+```yaml
 You can also use templates in the option.
 
-```
-
+```yaml
   
       template
        
       
          
-```
-
+```yaml
 The template(s) will be evaluated when the becomes ‘true’.
 
 Templates that do not contain an entity will be rendered once per minute.
@@ -559,22 +515,19 @@ specific time on a specific date. There are three allowed formats:
 A string that represents a time to fire on each day. Can be specified as or . If
 the seconds are not specified, will be used.
 
-```
-
+```yaml
   
       time
       # 24-hour time format. This trigger will fire at 3:32 PM
        
-```
-
+```yaml
 The entity ID of an .
 
 Will fire at specified date & time.  
 ---  
 Will fire at midnight on specified date.  
 Will fire once a day at specified time.  
-```
-
+```yaml
   
         state
          binary_sensor.motion
@@ -597,8 +550,7 @@ Will fire once a day at specified time.
         climate.turn_off
         
            climate.office
-```
-
+```yaml
 ### Sensors of datetime device class
 
 The Entity ID of a with the “timestamp” device class.
@@ -620,8 +572,7 @@ Multiple times can be provided in a list. All formats can be intermixed.
 
 It’s also possible to use for times.
 
-```
-
+```yaml
   
     
        Alarm
@@ -642,8 +593,7 @@ It’s also possible to use for times.
       
        "sensor.{{ my_alarm | slugify }}_time"
        
-```
-
+```yaml
 Time triggers can be filtered to fire only on specific days of the week using
 the option. This allows you to create automations that only run on certain days,
 such as weekdays or weekends.
@@ -660,8 +610,7 @@ This example demonstrates a different wake-up time for weekends:
 
 The option works with all time formats, including input datetime entities:
 
-```
-
+```yaml
   
         time
          input_datetime.work_start_time
@@ -676,16 +625,14 @@ The option works with all time formats, including input datetime entities:
         
            
            
-```
-
+```yaml
 With the time pattern trigger, you can match if the hour, minute or second of
 the current time matches a specific value. You can prefix the value with a to
 match whenever the value is divisible by that number. You can specify to match
 any value (when using the web interface this is required, the fields cannot be
 left empty).
 
-```
-
+```yaml
   
       time_pattern
       # Matches every hour at 5 minutes past whole
@@ -705,8 +652,7 @@ automation 3
       time_pattern
       # You can also match on interval. This will match every 5 minutes
        
-```
-
+```yaml
 Do not prefix numbers with a zero - using instead of for example will result in
 errors.
 
@@ -745,11 +691,9 @@ are also available in the template as .
 
 Note that to use JSON encoded payloads, the header must be set to , e.g.:
 
-```
-
+```yaml
  -X POST -H  -d  
-```
-
+```yaml
 Webhook endpoints don’t require authentication, other than knowing a valid
 webhook ID. Security best practices for webhooks include:
 
@@ -763,16 +707,14 @@ can be either a person, or a device_tracker. For zone automation to work, you
 need to have setup a device tracker platform that supports reporting GPS
 coordinates. This includes , the and the .
 
-```
-
+```yaml
   
       zone
        person.paulus
        zone.home
       # Event is either enter or leave
        enter 
-```
-
+```yaml
 Geolocation trigger fires when an entity is appearing in or disappearing from a
 zone. Entities that are created by a platform support reporting GPS coordinates.
 Because entities are generated and removed by these platforms automatically, the
@@ -781,16 +723,14 @@ definition of a , which is directly linked to one of the Geolocation platforms.
 
 This isn’t for use with entities. For those look above at the trigger.
 
-```
-
+```yaml
   
       geo_location
        nsw_rural_fire_service_feed
        zone.bushfire_alert_zone
       # Event is either enter or leave
        enter 
-```
-
+```yaml
 Device triggers encompass a set of events that are defined by an integration.
 This includes, for example, state changes of sensors as well as button events
 from remotes. are set up through autodiscovery.
@@ -808,8 +748,7 @@ single event start at a time.
 An optional time offset can be given to have it fire a set time before or after
 the calendar event (e.g., 5 minutes before event start).
 
-```
-
+```yaml
   
       calendar
       # Possible values: start, end
@@ -818,8 +757,7 @@ the calendar event (e.g., 5 minutes before event start).
        calendar.light_schedule
       
        
-```
-
+```yaml
 See the integration for more details on event triggers and the additional event
 data available for use by an automation.
 
@@ -832,15 +770,13 @@ settings.
 Sentences are allowed to use some basic like optional and alternative words. For
 example, will match both “party time” and “it’s party time”.
 
-```
-
+```yaml
   
       conversation
       
          
          
-```
-
+```yaml
 The sentences matched by this trigger will be:
 
 Punctuation and casing are ignored, so “It’s PARTY TIME!!!” will also match.
@@ -869,8 +805,7 @@ prefix the first line of each trigger with a dash (-) and indent the next lines
 accordingly. Whenever one of the triggers fires, processing of your automation
 rule begins.
 
-```
-
+```yaml
   
     
       time_pattern
@@ -878,8 +813,7 @@ rule begins.
       # our second trigger is the sunset
       sun
        sunset
-```
-
+```yaml
 ## Multiple entity IDs for the same trigger
 
 It is possible to specify multiple entities for the same trigger. To do so add
@@ -889,8 +823,7 @@ processing your automation each time the trigger is true for any entity listed.
 Every individual trigger in an automation can be disabled, without removing it.
 To do so, add to the trigger. For example:
 
-```
-
+```yaml
 # Example script with a disabled trigger
 
   
@@ -903,13 +836,11 @@ To do so, add to the trigger. For example:
     # This trigger will fire, as it is not disabled.
       time
        
-```
-
+```yaml
 Triggers can also be disabled based on limited templates or blueprint inputs.
 These are only evaluated once when the automation is loaded.
 
-```
-
+```yaml
   
     
        Boolean
@@ -932,8 +863,7 @@ These are only evaluated once when the automation is loaded.
       sun
        sunset
        "{{ _enable_number < 50 }}"
-```
-
+```yaml
 This feature requires Home Assistant version 2024.10 or later. If using this in
 a blueprint, set the for the blueprint to at least this version. See the for
 more details.
