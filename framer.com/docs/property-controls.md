@@ -2,7 +2,7 @@
 title: "Property Controls"
 source: "https://www.framer.com/developers/property-controls"
 domain: "framer.com"
-scraped_at: "2025-08-18T04:17:15.383Z"
+scraped_at: "2025-08-18T04:19:13.852Z"
 ---
 # Property Controls
 ###### Search
