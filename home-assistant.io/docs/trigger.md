@@ -3,20 +3,85 @@ title: "Documentation"
 description: "Documentation from home-assistant.io"
 source: "https://www.home-assistant.io/docs/automation/trigger"
 domain: "home-assistant.io"
-scraped_at: "2025-08-18T03:36:06.332Z"
+scraped_at: "2025-08-18T03:37:20.177Z"
 category: "documentation"
 tags: 
   - "home-assistant.io"
   - "documentation"
-  - "automation"
 ---
 
 # Documentation
 
-> **Source:** [https://www.home-assistant.io/docs/automation/trigger](https://www.home-assistant.io/docs/automation/trigger)  
-> **Last Updated:** 8/18/2025
+> **Source:** [https://www.home-assistant.io/docs/automation/trigger](https://www.home-assistant.io/docs/automation/trigger)
 
-Event trigger</a></li>
+<!--<![endif]--><head>
+    <title>Automation Trigger - Home Assistant</title>
+    </head>
+
+  <body>
+    <header>
+      
+
+<div>
+  <div>
+    <div>
+      <a href="/">
+        </a>
+      <a href="/blog/2025/08/06/release-20258/" title="Latest version 2025.8.2 released August 15, 2025">
+        2025.8.2
+      </a>
+    </div>
+
+    <div>
+      <nav>
+        <input>
+        <ul>
+          <li><a href="/installation/">Getting started</a></li>
+          <li>
+            <a href="/docs/">Documentation </a>
+            <ul>
+              <li><a href="/installation/"></a></li>
+              <li><a href="/docs/automation/"></a></li>
+              <li><a href="/dashboards/"></a></li>
+              <li><a href="/voice_control/"></a></li>
+              <li><a href="/docs/organizing/"></a></li>
+              <li><a href="/docs/energy/"></a></li>
+              <li><a href="/docs/configuration/"></a></li>
+            </ul>
+          </li>
+          <li><a href="/integrations/">Integrations</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/help/">Need help?</a></li>
+          <li>
+            <div><button><span><span>Search</span></span><span><kbd>K</kbd></span></button></div>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+    </header>
+
+    <div>
+
+      
+
+      <div>
+        <div>
+
+          <aside>
+                <section>
+                  <div>
+                    <ul>
+<li>
+<a href="#trigger-id">Trigger ID</a>
+<ul>
+<li><a href="#video-tutorial">Video tutorial</a></li>
+</ul>
+</li>
+<li><a href="#trigger-variables">Trigger variables</a></li>
+<li><a href="#event-trigger">Event trigger</a></li>
 <li><a href="#home-assistant-trigger">Home Assistant trigger</a></li>
 <li><a href="#mqtt-trigger">MQTT trigger</a></li>
 <li><a href="#numeric-state-trigger">Numeric state trigger</a></li>
@@ -79,30 +144,40 @@ Event trigger</a></li>
                 </section>
               </aside> 
 
+          
           <div>
+          
 
+            
               <article>
-
+  
   <header>
-
+    
+    
       <div>
         <a href="/">Home</a>
-
-            ▸ <a href="/docs/">Documentation</a>
-
-            ▸ <a href="/docs/automation/">Automation</a>
-
-            ▸ 
-
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+          
+        
       </div>
-
+    
     <h1>
-
+      
         Automation Trigger
-
+      
     </h1>
   </header>
-
+  
+  
   <p>Triggers are what starts the processing of an <span>automation<span>Automations in Home Assistant allow you to automatically respond to things that happen in and around your home.<a href="/docs/automation/"> [Learn more]</a></span></span> rule. When <em>any</em> of the automation’s triggers becomes true (trigger <em>fires</em>), Home Assistant will validate the <a href="/docs/automation/condition/">conditions</a>, if any, and call the <a href="/docs/automation/action/">action</a>.</p>
 <p>An <span>automation<span>Automations in Home Assistant allow you to automatically respond to things that happen in and around your home.<a href="/docs/automation/"> [Learn more]</a></span></span> can be triggered by an <span>event<span>Every time something happens in Home Assistant, an event is fired. There are different types of events, such as state change events, when an action was triggered, or the time changed. All entities produce state change events. Every time a state changes, a state change event is produced. Events can be used to trigger automations or scripts. For example, you can trigger an automation when a light is turned on, then a speaker turns on in that room. Events can also be used to trigger actions in the frontend. For example, you can trigger an action when a button is pressed.<a href="/docs/configuration/events/"> [Learn more]</a></span></span>, a certain <span>entity<span>An entity represents a sensor, actor, or function in Home Assistant. Entities are used to monitor physical properties or to control other entities. An entity is usually part of a device or a service.<a href="/docs/configuration/entities_domains/"> [Learn more]</a></span></span> <span>state<span>The state holds the information of interest of an entity, for example, if a light is on or off. Each entity has exactly one state and the state only holds one value at a time. However, entities can store attributes related to that state such as brightness, color, or a unit of measurement.<a href="/docs/configuration/state_object/"> [Learn more]</a></span></span>, at a given time, and more. These can be specified directly or more flexible via templates. It is also possible to specify multiple triggers for one automation.</p>
 <ul>
@@ -1373,11 +1448,17 @@ To do so, add <code>enabled: false</code> to the trigger. For example:</p>
 </div></div></div>
 <p>This blueprint automation can then be triggered either by the fixed manual_event trigger, or additionally by any triggers selected in the trigger selector. This is also applicable for <code>wait_for_trigger</code> action.</p>
 
+  
+
 <div>
   <h2>Related topics<a href="#related-topics"></a>
 </h2>
   <ul>
-
+    
+    
+    
+    
+    
     <li>
       <a href="/voice_control/custom_sentences/#adding-a-custom-sentence-to-trigger-an-automation">
         Adding a custom sentence to trigger an automation
@@ -1386,6 +1467,7 @@ To do so, add <code>enabled: false</code> to the trigger. For example:</p>
     </ul>
 </div>
 
+  
 <div>
   <h4>
 <b> Help us improve our documentation</b><a href="#feedback_section"></a>
@@ -1394,21 +1476,25 @@ To do so, add <code>enabled: false</code> to the trigger. For example:</p>
   <div>
     <ul>
     <li><a href="https://github.com/home-assistant/home-assistant.io/tree/current/source/_docs/automation/trigger.markdown" title="Edit this page"></a></li>
-
+    
     <li><a href="https://github.com/home-assistant/home-assistant.io/issues/new?template=feedback.yml&amp;url=https%3A%2F%2Fwww.home-assistant.io%2Fdocs%2Fautomation%2Ftrigger%2F&amp;version=2025.8.2&amp;labels=current" title="Provide feedback on this page"></a></li>
     <li><a href="https://github.com/home-assistant/home-assistant.io/issues?utf8=%E2%9C%93&amp;q=%22%2Fdocs%2Fautomation%2Ftrigger%2F%22&amp;in=body" title="View given feedback for this page"></a></li>
-
+    
   </ul>
   </div>
 </div>
 
 </article>
 
+            
           </div>
 
+          
+            
               <aside>
-
+            
             <div>
+  
 
   <section>
   <div>
@@ -1423,11 +1509,11 @@ To do so, add <code>enabled: false</code> to the trigger. For example:</p>
 
       <li>
   <a href="/docs/automation/">Automations </a>
-
+  
   <ul>
     <li>
       <a href="/docs/automation/basics/">Basic automations </a>
-
+      
       <ul>
         <li><a href="/docs/automation/using_blueprints/">Using automation blueprints </a></li>
         <li><a href="/docs/automation/editor/">Editor </a></li>
@@ -1440,67 +1526,67 @@ To do so, add <code>enabled: false</code> to the trigger. For example:</p>
         <li><a href="/docs/automation/yaml/">YAML </a></li>
         <li><a href="/docs/automation/troubleshooting/">Troubleshooting automation </a></li>
       </ul>
-
+      
     </li>
     <li>
       <a href="/docs/scene/">Scenes </a>
-
+      
     </li>
     <li>
       <a href="/docs/blueprint/">Blueprints </a>
-
+      
     </li>
     <li>
       <a href="/docs/scripts/">Scripts </a>
-
+      
     </li>
   </ul>
-
+  
 </li>
 
 <li>
   <a href="/dashboards">Dashboards </a>
-
+  
 </li>
 
 <li>
   <a href="/voice_control/">Voice assistants </a>
-
+  
 </li>
 
 <li>
   <a href="/docs/organizing/">Organization </a>
-
+  
 </li>
 
 <li>
   <a href="/docs/energy/">Home energy management </a>
-
+  
 </li>
 
 <li>
   <a href="/common-tasks/general/">Common tasks </a>
-
+  
 </li>
 
 <li>
   <a href="/docs/configuration/">Advanced configuration </a>
-
+  
 </li>
 
 <li>
   <a href="/docs/authentication/">Authentication </a>
-
+  
 </li>
 
 <li>
   <a href="/docs/backend/">Backend </a>
-
+  
 </li>
 
 <li>
   <a href="/docs/tools/">Tools and helpers </a>
-
+  
 </li>
 
 <li>
@@ -1509,7 +1595,7 @@ To do so, add <code>enabled: false</code> to the trigger. For example:</p>
 
 <li>
   <a href="/integrations/mqtt">MQTT </a>
-
+  
 </li>
 
 <li>
@@ -1600,7 +1686,7 @@ To do so, add <code>enabled: false</code> to the trigger. For example:</p>
 </div>
 
           </aside>
-
+          
         </div>
       </div>
 
