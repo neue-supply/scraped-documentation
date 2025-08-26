@@ -2,7 +2,7 @@
 title: "Concepts"
 source: "https://www.framer.com/developers/concepts"
 domain: "framer.com"
-scraped_at: "2025-08-26T16:56:54.763Z"
+scraped_at: "2025-08-26T17:03:46.306Z"
 ---
 # Concepts
 ###### Search
