@@ -2,7 +2,7 @@
 title: "Nodes"
 source: "https://www.framer.com/developers/nodes"
 domain: "framer.com"
-scraped_at: "2025-08-26T16:57:08.708Z"
+scraped_at: "2025-08-26T17:04:02.702Z"
 ---
 # Nodes
 ###### Search
