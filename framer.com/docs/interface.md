@@ -2,7 +2,7 @@
 title: "Interface"
 source: "https://www.framer.com/developers/interface"
 domain: "framer.com"
-scraped_at: "2025-08-26T16:56:56.319Z"
+scraped_at: "2025-08-26T17:03:47.917Z"
 ---
 # Interface
 ###### Search
