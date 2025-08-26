@@ -2,7 +2,7 @@
 title: "Fonts"
 source: "https://www.framer.com/developers/fonts"
 domain: "framer.com"
-scraped_at: "2025-08-26T16:57:16.598Z"
+scraped_at: "2025-08-26T17:04:12.330Z"
 ---
 # Fonts
 ###### Search
