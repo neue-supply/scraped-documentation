@@ -2,7 +2,7 @@
 title: "Storing Data"
 source: "https://www.framer.com/developers/storing-data"
 domain: "framer.com"
-scraped_at: "2025-08-26T16:57:09.923Z"
+scraped_at: "2025-08-26T17:04:04.271Z"
 ---
 # Storing Data
 ###### Search
