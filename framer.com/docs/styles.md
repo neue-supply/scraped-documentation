@@ -2,7 +2,7 @@
 title: "Styles"
 source: "https://www.framer.com/developers/styles"
 domain: "framer.com"
-scraped_at: "2025-08-26T16:57:07.217Z"
+scraped_at: "2025-08-26T17:04:01.083Z"
 ---
 # Styles
 ###### Search
