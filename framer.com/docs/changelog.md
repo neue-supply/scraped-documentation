@@ -2,7 +2,7 @@
 title: "Changelog"
 source: "https://www.framer.com/developers/changelog"
 domain: "framer.com"
-scraped_at: "2025-08-26T16:56:51.616Z"
+scraped_at: "2025-08-26T17:03:42.915Z"
 ---
 # Changelog
 ###### Search
@@ -1614,25 +1614,6 @@ Compare
 [Wordpress ](https://www.framer.com/compare/framer-vs-wordpress)
 [Unbounce ](https://www.framer.com/compare/framer-vs-unbounce)
 [Webflow ](https://www.framer.com/compare/framer-vs-webflow)
-[Figma ](https://www.framer.com/compare/framer-vs-figma)
-[Wix ](https://www.framer.com/compare/framer-vs-wix)
-Solutions
-[Figma to HTML ](https://www.framer.com/solutions/figma-to-html/)
-[Website builder ](https://www.framer.com/solutions/website-builder/)
-[Portfolio maker ](https://www.framer.com/solutions/portfolio-website/)
-[Landing pages ](https://www.framer.com/solutions/landing-pages/)
-[UI/UX design ](https://www.framer.com/solutions/ui-ux-design/)
-[No-code ](https://www.framer.com/solutions/no-code-website-builder/)
-Company
-[Security ](https://www.framer.com/legal/security/)
-[Careers ](https://www.framer.com/careers/)
-[Status ](https://www.framerstatus.com)
-Abuse
-[Brand ](https://www.framer.com/brand)
-[Legal ](https://www.framer.com/legal/terms-of-service/)
-Socials
-[Instagram ](https://www.instagram.com/framer)
-[YouTube ](https://www.youtube.com/@framer)
-[Threads](https://www.threads.net/@framer)
+[Figma](https://www.framer.com/compare/framer-vs-figma)
 ---
 *Scraped from: https://www.framer.com/developers/changelog*
