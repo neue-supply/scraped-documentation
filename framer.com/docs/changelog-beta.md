@@ -2,7 +2,7 @@
 title: "Changelog Beta"
 source: "https://www.framer.com/developers/changelog-beta"
 domain: "framer.com"
-scraped_at: "2025-08-26T16:56:45.992Z"
+scraped_at: "2025-08-26T17:03:36.207Z"
 ---
 # Changelog Beta
 ###### Search
