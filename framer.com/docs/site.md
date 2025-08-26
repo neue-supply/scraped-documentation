@@ -2,7 +2,7 @@
 title: "Site"
 source: "https://www.framer.com/developers/site"
 domain: "framer.com"
-scraped_at: "2025-08-26T16:56:58.930Z"
+scraped_at: "2025-08-26T17:03:51.151Z"
 ---
 # Site
 ###### Search
