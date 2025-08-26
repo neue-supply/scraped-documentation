@@ -2,7 +2,7 @@
 title: "Reference"
 source: "https://www.framer.com/developers/reference"
 domain: "framer.com"
-scraped_at: "2025-08-26T16:56:53.165Z"
+scraped_at: "2025-08-26T17:03:44.756Z"
 ---
 # Reference
 ###### Search
