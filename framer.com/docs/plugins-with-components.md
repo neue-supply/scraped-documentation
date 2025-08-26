@@ -2,7 +2,7 @@
 title: "Plugins With Components"
 source: "https://www.framer.com/developers/plugins-with-components"
 domain: "framer.com"
-scraped_at: "2025-08-26T16:57:04.548Z"
+scraped_at: "2025-08-26T17:03:57.712Z"
 ---
 # Plugins With Components
 ###### Search
