@@ -2,7 +2,7 @@
 title: "Modes"
 source: "https://www.framer.com/developers/modes"
 domain: "framer.com"
-scraped_at: "2025-08-26T16:56:57.571Z"
+scraped_at: "2025-08-26T17:03:49.519Z"
 ---
 # Modes
 ###### Search
