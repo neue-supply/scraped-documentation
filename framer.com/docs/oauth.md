@@ -2,7 +2,7 @@
 title: "Oauth"
 source: "https://www.framer.com/developers/oauth"
 domain: "framer.com"
-scraped_at: "2025-08-26T16:57:11.393Z"
+scraped_at: "2025-08-26T17:04:05.861Z"
 ---
 # Oauth
 ###### Search
