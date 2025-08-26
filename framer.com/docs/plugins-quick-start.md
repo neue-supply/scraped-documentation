@@ -2,7 +2,7 @@
 title: "Plugins Quick Start"
 source: "https://www.framer.com/developers/plugins-quick-start"
 domain: "framer.com"
-scraped_at: "2025-08-26T16:56:48.598Z"
+scraped_at: "2025-08-26T17:03:39.450Z"
 ---
 # Plugins Quick Start
 ###### Search
