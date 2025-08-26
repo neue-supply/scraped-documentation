@@ -2,7 +2,7 @@
 title: "Plugins Localization"
 source: "https://www.framer.com/developers/plugins-localization"
 domain: "framer.com"
-scraped_at: "2025-08-26T16:57:01.759Z"
+scraped_at: "2025-08-26T17:03:54.461Z"
 ---
 # Plugins Localization
 ###### Search
