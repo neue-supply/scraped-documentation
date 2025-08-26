@@ -2,7 +2,7 @@
 title: "Assets"
 source: "https://www.framer.com/developers/assets"
 domain: "framer.com"
-scraped_at: "2025-08-26T16:57:05.970Z"
+scraped_at: "2025-08-26T17:03:59.440Z"
 ---
 # Assets
 ###### Search
