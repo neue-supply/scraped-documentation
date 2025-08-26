@@ -2,7 +2,7 @@
 title: "Custom Code"
 source: "https://www.framer.com/developers/custom-code"
 domain: "framer.com"
-scraped_at: "2025-08-26T16:57:17.828Z"
+scraped_at: "2025-08-26T17:04:13.944Z"
 ---
 # Custom Code
 ###### Search
