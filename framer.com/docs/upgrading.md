@@ -2,7 +2,7 @@
 title: "Upgrading"
 source: "https://www.framer.com/developers/upgrading"
 domain: "framer.com"
-scraped_at: "2025-08-26T16:57:22.002Z"
+scraped_at: "2025-08-26T17:04:18.614Z"
 ---
 # Upgrading
 ###### Search
