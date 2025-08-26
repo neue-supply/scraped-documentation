@@ -2,7 +2,7 @@
 title: "Plugins Introduction"
 source: "https://www.framer.com/developers/plugins-introduction"
 domain: "framer.com"
-scraped_at: "2025-08-26T16:56:47.191Z"
+scraped_at: "2025-08-26T17:03:37.814Z"
 ---
 # Plugins Introduction
 ###### Search
