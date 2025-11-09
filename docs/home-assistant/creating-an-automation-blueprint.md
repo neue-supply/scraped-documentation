@@ -3,7 +3,7 @@ title: Creating an automation blueprint - Home Assistant
 description: Tutorial on creating an automation blueprint.
 source_url: https://www.home-assistant.io/docs/blueprint/tutorial
 source_domain: www.home-assistant.io
-scraped_at: 2025-11-09T20:00:23.835Z
+scraped_at: 2025-11-09T20:05:42.615Z
 ---
 
 Tip
