@@ -3,7 +3,7 @@ title: Selectors - Home Assistant
 description: Documentation on available selectors.
 source_url: https://www.home-assistant.io/docs/blueprint/selectors
 source_domain: www.home-assistant.io
-scraped_at: 2025-11-09T20:00:12.369Z
+scraped_at: 2025-11-09T20:04:51.517Z
 ---
 
 Selectors can be used to specify what values are accepted for a blueprint
