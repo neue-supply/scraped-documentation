@@ -3,7 +3,7 @@ title: Integrating your water usage - Home Assistant
 description: Learn how to add information about your water usage to Home Assistant home energy management.
 source_url: https://www.home-assistant.io/docs/energy/water
 source_domain: www.home-assistant.io
-scraped_at: 2025-11-09T20:00:19.884Z
+scraped_at: 2025-11-09T20:05:23.239Z
 ---
 
 Home Assistant allows you to track your water usage in the home energy management too.
