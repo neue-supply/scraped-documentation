@@ -1,92 +1,58 @@
 ---
 title: Automation actions - Home Assistant
-description: Automations result in action.
-source_url: https://www.home-assistant.io/docs/automation/action
+description: How to use the various automation actions.
+source_url: https://www.home-assistant.io/docs/automation/services
 source_domain: www.home-assistant.io
-scraped_at: 2025-11-09T20:04:38.726Z
+scraped_at: 2025-11-09T20:08:10.504Z
 ---
 
-The action of an automation is what is being executed when an automation fires. The action part follows the [script syntax](https://www.home-assistant.io/docs/scripts/) which can be used to interact with anything via other actions or events.
+The automation integration has actions to control automations, like turning automations on and off. This can be useful if you want to disable an automation from another automation.
 
-For actions, you can specify the `entity_id` that it should apply to and optional parameters (to specify for example the brightness).
+## Action [`automation.turn_on`](https://my.home-assistant.io/redirect/developer_call_service?service=automation.turn_on)
 
-You can also perform the action to activate [a scene](https://www.home-assistant.io/integrations/scene/) which will allow you to define how you want your devices to be and have Home Assistant perform the right action.
+This action enables the automation’s triggersA trigger is a set of values or conditions of a platform that are defined to cause an automation to run. [\[Learn more\]](https://www.home-assistant.io/docs/automation/trigger/).
 
-```yaml
-automation:
-  # Change the light in the kitchen and living room to 150 brightness and color red.
-  triggers:
-    - trigger: sun
-      event: sunset
-  actions:
-    - action: light.turn_on
-      target:
-        entity_id:
-          - light.kitchen
-          - light.living_room
-      data:
-        brightness: 150
-        rgb_color: [255, 0, 0]
+| Data attribute | Optional | Description |
+| --- | --- | --- |
+| `entity_id` | no | Entity ID of automation to turn on. Can be a list. `none` or `all` are also accepted. |
 
-automation 2:
-  # Notify me on my mobile phone of an event
-  triggers:
-    - trigger: sun
-      event: sunset
-      offset: -00:30
-  variables:
-    notification_action: notify.paulus_iphone
-  actions:
-    # Actions are scripts so can also be a list of actions
-    - action: "{{ notification_action }}"
-      data:
-        message: "Beautiful sunset!"
-    - delay: 0:35
-    - action: notify.notify
-      data:
-        message: "Oh wow you really missed something great."
-```
+## Action [`automation.turn_off`](https://my.home-assistant.io/redirect/developer_call_service?service=automation.turn_off)
 
-YAML
+This action disables the automation’s triggersA trigger is a set of values or conditions of a platform that are defined to cause an automation to run. [\[Learn more\]](https://www.home-assistant.io/docs/automation/trigger/), and optionally stops any currently active actionsActions are used in several places in Home Assistant. As part of a script or automation, actions define what is going to happen once a trigger is activated. In scripts, an action is called _sequence_. [\[Learn more\]](https://www.home-assistant.io/docs/automation/action/).
 
-Copy
+| Data attribute | Optional | Description |
+| --- | --- | --- |
+| `entity_id` | no | Entity ID of automation to turn off. Can be a list. `none` or `all` are also accepted. |
+| `stop_actions` | yes | Stop any currently active actions (defaults to true). |
 
-Conditions can also be part of an action. You can combine multiple actions and conditions in a single action, and they will be processed in the order you put them in. If the result of a condition is false, the action will stop there so any action after that condition will not be executed.
+## Action [`automation.toggle`](https://my.home-assistant.io/redirect/developer_call_service?service=automation.toggle)
 
-```yaml
-automation:
-- alias: "Office at evening"
-  triggers:
-    - trigger: state
-      entity_id: sensor.office_occupancy
-      to: "on"
-  actions:
-    - action: notify.notify
-      data:
-        message: "Testing conditional actions"
-    - condition: or
-      conditions:
-        - condition: numeric_state
-          entity_id: sun.sun
-          attribute: elevation
-          below: 4
-        - condition: state
-          entity_id: sensor.office_illuminance
-          below: 10
-    - action: scene.turn_on
-      target:
-        entity_id: scene.office_at_evening
-```
+This action enables the automation’s triggers if they were disabled, or disables the automation’s triggers, and stops any currently active actions, if the triggers were enabled.
 
-YAML
+| Data attribute | Optional | Description |
+| --- | --- | --- |
+| `entity_id` | no | Entity ID of automation to turn on. Can be a list. `none` or `all` are also accepted. |
 
-Copy
+## Action [`automation.trigger`](https://my.home-assistant.io/redirect/developer_call_service?service=automation.trigger)
+
+This action will trigger the actionActions are used in several places in Home Assistant. As part of a script or automation, actions define what is going to happen once a trigger is activated. In scripts, an action is called _sequence_. [\[Learn more\]](https://www.home-assistant.io/docs/automation/action/) of an automationAutomations in Home Assistant allow you to automatically respond to things that happen in and around your home. [\[Learn more\]](https://www.home-assistant.io/docs/automation/). By default it bypasses any conditions, though that can be changed via the `skip_condition` attribute.
+
+| Data attribute | Optional | Description |
+| --- | --- | --- |
+| `entity_id` | no | Entity ID of automation to trigger. Can be a list. `none` or `all` are also accepted. |
+| `skip_condition` | yes | Whether or not the condition will be skipped (defaults to true). |
+
+## Action [`automation.reload`](https://my.home-assistant.io/redirect/developer_call_service?service=automation.reload)
+
+_This action is only required if you create/edit automations in YAML. Automations via the UI do this automatically._
+
+This action reloads all automations, stopping all currently active automation actions.
 
 #### **Help us improve our documentation**
 
 Suggest an edit to this page, or provide/view feedback for this page.
 
 
-- [Edit](https://github.com/home-assistant/home-assistant.io/tree/current/source/_docs/automation/action.markdown "Edit this page")
-- [Provide feedback](https://github.com/home-assistant/home-assistant.io/issues/new?template=feedback.yml&url=https%3A%2F%2Fwww.home-assistant.io%2Fdocs%2Fautomation%2Faction%2F&version=2025.11.1&labels=current "Provide feedback on this page")
-- [View given feedback](https://github.com/home-assistant/home-assistant.io/issues?utf8=%E2%9C%93&q=%22%2Fdocs%2Fautomation%2Faction%2F%22&in=body "View given feedback for this page")
+- [Edit](https://github.com/home-assistant/home-assistant.io/tree/current/source/_docs/automation/services.markdown "Edit this page")
+- [Provide feedback](https://github.com/home-assistant/home-assistant.io/issues/new?template=feedback.yml&url=https%3A%2F%2Fwww.home-assistant.io%2Fdocs%2Fautomation%2Fservices%2F&version=2025.11.1&labels=current "Provide feedback on this page")
+- [View given feedback](https://github.com/home-assistant/home-assistant.io/issues?utf8=%E2%9C%93&q=%22%2Fdocs%2Fautomation%2Fservices%2F%22&in=body "View given feedback for this page")
