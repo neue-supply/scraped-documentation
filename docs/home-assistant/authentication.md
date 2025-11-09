@@ -3,7 +3,7 @@ title: Authentication - Home Assistant
 description: Documentation on authentication in Home Assistant.
 source_url: https://www.home-assistant.io/docs/authentication
 source_domain: www.home-assistant.io
-scraped_at: 2025-11-09T20:00:15.477Z
+scraped_at: 2025-11-09T20:05:04.221Z
 ---
 
 The authentication system secures access to Home Assistant.
