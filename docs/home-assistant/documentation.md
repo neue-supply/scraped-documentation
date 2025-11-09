@@ -3,7 +3,7 @@ title: Documentation - Home Assistant
 description: Documentation for Home Assistant
 source_url: https://www.home-assistant.io/docs
 source_domain: www.home-assistant.io
-scraped_at: 2025-11-09T20:00:07.994Z
+scraped_at: 2025-11-09T20:04:32.319Z
 ---
 
 The documentation covers beginner to advanced topics around the installation, setup, configuration, and usage of Home Assistant.
