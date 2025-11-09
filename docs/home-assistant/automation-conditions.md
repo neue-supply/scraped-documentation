@@ -3,7 +3,7 @@ title: Automation conditions - Home Assistant
 description: Automations can test conditions when invoked.
 source_url: https://www.home-assistant.io/docs/automation/condition/
 source_domain: www.home-assistant.io
-scraped_at: 2025-11-09T09:54:05.711Z
+scraped_at: 2025-11-09T09:54:16.364Z
 ---
 
 Conditions are an optional part of an automation rule. They can be used to prevent the automation’s actions from being run. After a triggerA trigger is a set of values or conditions of a platform that are defined to cause an automation to run. [\[Learn more\]](https://www.home-assistant.io/docs/automation/trigger/) occurred, all conditions will be checked. The automation will be executed if all conditions return `true`. If any of the conditions returns `false`, the automation won’t start.
