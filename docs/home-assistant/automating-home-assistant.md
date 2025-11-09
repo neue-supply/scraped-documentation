@@ -3,7 +3,7 @@ title: Automating Home Assistant - Home Assistant
 description: Steps to help you get automation setup in Home Assistant.
 source_url: https://www.home-assistant.io/docs/automation
 source_domain: www.home-assistant.io
-scraped_at: 2025-11-09T20:00:21.216Z
+scraped_at: 2025-11-09T20:05:29.841Z
 ---
 
 Home Assistant contains information about all your devicesA device is a model representing a physical or logical unit that contains entities. and servicesThe term “service” in Home Assistant is used in the sense of an **information**
