@@ -3,7 +3,7 @@ title: Grouping your assets - Home Assistant
 description: Grouping your assets makes it easier to find them and allows you to target groups in automations.
 source_url: https://www.home-assistant.io/docs/organizing
 source_domain: www.home-assistant.io
-scraped_at: 2025-11-09T20:00:16.980Z
+scraped_at: 2025-11-09T20:05:10.615Z
 ---
 
 Once you have more devices, you may want to target entire groups of devices in automations. It also becomes more challenging to find items in lists.
