@@ -3,7 +3,7 @@ title: Integrating your solar panels - Home Assistant
 description: Learn how to add information about your solar panels to Home Assistant home energy management.
 source_url: https://www.home-assistant.io/docs/energy/solar-panels
 source_domain: www.home-assistant.io
-scraped_at: 2025-11-09T20:00:22.586Z
+scraped_at: 2025-11-09T20:05:36.284Z
 ---
 
 Gain insight into your energy production by integrating your solar panels into Home Assistant.
