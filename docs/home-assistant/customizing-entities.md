@@ -3,7 +3,7 @@ title: Customizing entities - Home Assistant
 description: Simple customization for entities.
 source_url: https://www.home-assistant.io/docs/configuration/customizing-devices
 source_domain: www.home-assistant.io
-scraped_at: 2025-11-09T20:00:10.826Z
+scraped_at: 2025-11-09T20:04:45.157Z
 ---
 
 After adding a new device, you might find the automatically assigned entity ID too technical and the entity lacking a friendly name. You can personalize these elements to better fit your naming conventions or modify other attributes like the icon.
