@@ -3,7 +3,7 @@ title: Automation actions - Home Assistant
 description: Automations result in action.
 source_url: https://www.home-assistant.io/docs/automation/action
 source_domain: www.home-assistant.io
-scraped_at: 2025-11-09T20:00:09.518Z
+scraped_at: 2025-11-09T20:04:38.726Z
 ---
 
 The action of an automation is what is being executed when an automation fires. The action part follows the [script syntax](https://www.home-assistant.io/docs/scripts/) which can be used to interact with anything via other actions or events.
