@@ -1,9 +1,9 @@
 ---
 title: Automation Trigger - Home Assistant
 description: All the different ways how automations can be triggered.
-source_url: https://www.home-assistant.io/docs/automation/trigger/
+source_url: https://www.home-assistant.io/docs/automation/trigger
 source_domain: www.home-assistant.io
-scraped_at: 2025-11-09T09:49:28.761Z
+scraped_at: 2025-11-09T20:08:38.162Z
 ---
 
 Triggers are what starts the processing of an automationAutomations in Home Assistant allow you to automatically respond to things that happen in and around your home. [\[Learn more\]](https://www.home-assistant.io/docs/automation/) rule. When _any_ of the automation’s triggers becomes true (trigger _fires_), Home Assistant will validate the [conditions](https://www.home-assistant.io/docs/automation/condition/), if any, and call the [action](https://www.home-assistant.io/docs/automation/action/).
