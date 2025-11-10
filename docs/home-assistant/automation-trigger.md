@@ -3,7 +3,7 @@ title: Automation Trigger - Home Assistant
 description: All the different ways how automations can be triggered.
 source_url: https://www.home-assistant.io/docs/automation/trigger/
 source_domain: www.home-assistant.io
-scraped_at: 2025-11-10T00:08:20.928Z
+scraped_at: 2025-11-10T00:11:18.709Z
 ---
 
 [ ](https://www.home-assistant.io/) [ 2025.11.1 ](https://www.home-assistant.io/blog/2025/11/05/release-202511/ "Latest version 2025.11.1 released November  7, 2025")
