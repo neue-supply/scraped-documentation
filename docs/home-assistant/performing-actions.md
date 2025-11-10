@@ -3,7 +3,7 @@ title: Performing actions - Home Assistant
 description: Instructions on how to perform actions in Home Assistant.
 source_url: https://www.home-assistant.io/docs/scripts/perform-actions/
 source_domain: www.home-assistant.io
-scraped_at: 2025-11-10T00:12:22.528Z
+scraped_at: 2025-11-10T02:58:50.738Z
 ---
 
 [ ](https://www.home-assistant.io/) [ 2025.11.1 ](https://www.home-assistant.io/blog/2025/11/05/release-202511/ "Latest version 2025.11.1 released November  7, 2025")
