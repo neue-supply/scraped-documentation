@@ -1,0 +1,40 @@
+# Browserless
+
+**Description:** Docker service running unknown
+**Host:** neue-dev
+**Type:** Docker Stack
+**OS:** Ubuntu Server
+**IP:** 10.0.10.12
+**Ports:** None exposed
+**Proxy Host:** N/A
+**VLAN:** 20 - Trusted
+**Status:** Unknown
+**Last Updated:** November 14, 2025
+
+## Container Configuration
+
+| Component | Specification |
+|-----------|---------------|
+| **Container Name** | browserless |
+| **Image** | unknown |
+| **Status** | unknown |
+| **User** | root |
+| **Restart Policy** | unknown |
+
+## Access Information
+
+
+## Common Operations
+
+```bash
+# View logs
+docker logs browserless
+
+# Restart service
+cd /opt/neue-dev/stacks/browserless && docker compose restart
+
+# Update service
+cd /opt/neue-dev/stacks/browserless && docker compose pull && docker compose up -d
+```
+
+---
