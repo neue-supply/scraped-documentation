@@ -1,0 +1,121 @@
+Home Assistant uses the [YAML](https://yaml.org/) syntax for configuration. While most integrations can be configured through the UI, some integrations require you to edit your [`configuration.yaml`](https://www.home-assistant.io/docs/configuration/) file to specify its settings.
+## YAML Style Guide 
+This page gives a high-level introduction to the YAML syntax used in Home Assistant. For a more detailed description and more examples, refer to the [YAML Style Guide for Home Assistant developers](https://developers.home-assistant.io/docs/documenting/yaml-style-guide/).
+## A first example 
+The following YAML example entry assumes that you would like to set up the [notify integration](https://www.home-assistant.io/integrations/notify) with the [pushbullet platform](https://www.home-assistant.io/integrations/pushbullet).
+```
+notify:
+  platform: pushbullet
+  api_key: "o.1234abcd"
+  name: pushbullet
+```
+
+YAML
+Copy
+  * An **integration** provides the core logic for some functionality (like `notify` provides sending notifications).
+  * A **platform** makes the connection to a specific software or hardware platform (like `pushbullet` works with the service from pushbullet.com).
+
+
+The basics of YAML syntax are block collections and mappings containing key-value pairs. Each item in a collection starts with a `-` while mappings have the format `key: value`. This is somewhat similar to a Hash table or more specifically a dictionary in Python. These can be nested as well. **Beware that if you specify duplicate keys, the last value for a key is used**.
+## Indentation in YAML 
+In YAML, indentation is important for specifying relationships. Indented lines are nested inside lines that are one level higher. In the above example, `platform: pushbullet` is a property of (nested inside) the `notify` integration.
+Getting the right indentation can be tricky if you’re not using an editor with a fixed-width font. Tabs are not allowed to be used for indentation. The convention is to use 2 spaces for each level of indentation.
+## Comments 
+Strings of text following a `#` are comments. They are ignored by the system. Comments explain in plain language what a particular code block is supposed to do. For future-you or someone else looking at the file.
+### Example with comment and nesting 
+The next example shows an [input_select](https://www.home-assistant.io/integrations/input_select) integration that uses a block collection for the values of options. The other properties (like `name:`) are specified using mappings. Note that the second line just has `threat:` with no value on the same line. Here, `threat` is the name of the input_select. The values for it are everything nested below it.
+```
+input_select:
+  threat:
+    name: "Threat level"
+    # A collection is used for options
+    options:
+      - 0
+      - 1
+      - 2
+      - 3
+    initial: 0
+```
+
+YAML
+Copy
+### Example of nested mapping 
+The following example shows nesting a collection of mappings in a mapping. In Home Assistant, this would create two sensors that each use the MQTT platform but have different values for their `state_topic` (one of the properties used for MQTT sensors).
+```
+sensor:
+  - platform: mqtt
+    state_topic: "sensor/topic"
+  - platform: mqtt
+    state_topic: "sensor2/topic"
+```
+
+YAML
+Copy
+## Including values 
+### Environment variables 
+On Home Assistant CoreHome Assistant Core is the Python program at the heart of Home Assistant. It is part of all installation types. It can be installed standalone (without Home Assistant Supervisor) as a container using Docker (this is typically referred to as the Home Assistant Container installation type). For development, Core can also be run using a Virtual Environment (previously referred as the Home Assistant Core installation type). For production setup, the Home Assistant Core installation type is deprecated. installations, you can include values from your system’s environment variables with `!env_var`. Note that this will only work for Home Assistant CoreHome Assistant Core is the Python program at the heart of Home Assistant. It is part of all installation types. It can be installed standalone (without Home Assistant Supervisor) as a container using Docker (this is typically referred to as the Home Assistant Container installation type). For development, Core can also be run using a Virtual Environment (previously referred as the Home Assistant Core installation type). For production setup, the Home Assistant Core installation type is deprecated. installations, in a scenario where it is possible to specify these. Regular Home Assistant users are recommended to use `!include` statements instead.
+```
+example:
+  password: !env_var PASSWORD
+```
+
+YAML
+Copy
+#### Default value 
+If an environment variable is not set, you can fall back to a default value.
+```
+example:
+  password: !env_var PASSWORD default_password
+```
+
+YAML
+Copy
+### Including entire files 
+To improve readability, you can source out certain domains from your main configuration file with the `!include`-syntax.
+```
+light: !include lights.yaml
+```
+
+YAML
+Copy
+More information about this feature can also be found at [splitting configuration](https://www.home-assistant.io/docs/configuration/splitting_configuration/).
+## Common issues 
+### found character ‘\t’ 
+If you see the following message:
+```
+found character '\t' that cannot start any token
+```
+
+Txt
+Copy
+This means that you’ve mistakenly entered a tab character, instead of spaces.
+### Upper and lower case 
+Home Assistant is case sensitive, a state of `'on'` is not the same as `'On'` or `'ON'`. Similarly an entity of `group.Doors` is not the same as `group.doors`.
+If you’re having trouble, check the case that Home Assistant is reporting in the dev-state menu, under _Developer tools_.
+### Booleans 
+YAML treats `Y`, `true`, `Yes`, `ON` all as `true` and `n`, `FALSE`, `No`, `off` as `false`. This means that if you want to set the state of an entity to `on` you _must_ quote it as `'on'` otherwise it will be translated as setting the state to true. The same applies to `off`.
+Not quoting the value may generate an error such as:
+```
+not a valid value for dictionary value @ data
+```
+
+Txt
+Copy
+## Validating YAML syntax 
+With all these indents and rules, it is easy to make a mistake. The best way to check if your YAML syntax is correct (validate) depends on the editor you use. We can’t list them all here.
+  * If you edit the files directly in Home Assistant, refer to the section: [Validating the configuration](https://www.home-assistant.io/docs/configuration/#validating-the-configuration)
+
+
+## Related topics 
+  * [ Configuration.yaml file ](https://www.home-assistant.io/docs/configuration/)
+  * [ Storing private data in separate file ](https://www.home-assistant.io/docs/configuration/secrets/)
+  * [ Troubleshooting the configuration files ](https://www.home-assistant.io/docs/configuration/troubleshooting/)
+  * [ Validating the configuration ](https://www.home-assistant.io/docs/configuration/#validating-the-configuration)
+
+
+## Related links 
+  * [YAML Style Guide for Home Assistant developers](https://developers.home-assistant.io/docs/documenting/yaml-style-guide/)
+
+
+####  **Help us improve our documentation**
+Suggest an edit to this page, or provide/view feedback for this page. 
